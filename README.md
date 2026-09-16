@@ -9,7 +9,7 @@ Not official. Not investment advice. Not a protocol audit.
 | Compared URLs | https://kaspa.org/ · https://kaspaexplained.com/ |
 | GitHub repo | [STP-KAS/kaspa.org-kaspaexplained](https://github.com/STP-KAS/kaspa.org-kaspaexplained) |
 | Method | Primary-page reads, GitHub source checks, live REST API snapshot, third-party market data, related-URL mapping |
-| Stale-page report | Filed on the kaspa.org site repo: [kaspamedia/kaspa-org#23](https://github.com/kaspamedia/kaspa-org/issues/23) (re-check comment, 16 Sep 2026) |
+| Stale-page report | [Issue #1](https://github.com/STP-KAS/kaspa.org-kaspaexplained/issues/1) on this repo. Upstream already open: [kaspamedia/kaspa-org#22](https://github.com/kaspamedia/kaspa-org/issues/22), [#23](https://github.com/kaspamedia/kaspa-org/issues/23) (22 Aug 2026; still open 16 Sep 2026). Direct write to that repo was GitHub 403. |
 
 GitHub repository names cannot contain `/`. This report is published as `kaspa.org-kaspaexplained`.
 
@@ -61,9 +61,9 @@ TN12 is not the activation record. Mainnet DAA past the release score is.
 | 22 Aug 2026 | [kaspamedia/kaspa-org#22](https://github.com/kaspamedia/kaspa-org/issues/22) and [#23](https://github.com/kaspamedia/kaspa-org/issues/23) filed: Toccata still described as pre-mainnet on `/lore` and parts of `/build` |
 | 24 Aug 2026 | Last activity on those issues (assigned, not closed) |
 | 16 Sep 2026 | This report re-read `/lore`. The three stale Toccata sentences were still live. `/build` had been corrected. `/lore` had not. |
-| 16 Sep 2026 | Re-check posted on [#23](https://github.com/kaspamedia/kaspa-org/issues/23) |
+| 16 Sep 2026 | Recorded as [issue #1](https://github.com/STP-KAS/kaspa.org-kaspaexplained/issues/1). Direct comment on kaspamedia/kaspa-org#23 returned GitHub 403. |
 
-Lag from the GitHub report to the re-check: **~25 days**. The public face stayed wrong after the site repo was told.
+Lag from the upstream GitHub report to the re-check: **~25 days**. The public face stayed wrong after the site repo was told.
 
 **Required fix for `/lore`:** past-tense Toccata. Drop TN12-as-the-story. Closing line: Toccata shipped. DAGKnight next. Until that ships, **do not cite kaspa.org/lore for upgrade status.**
 
@@ -101,7 +101,7 @@ The comparison is of **two websites**, not of Kaspa as an investment. I treated 
 4. **Checked domain and hosting facts** (WHOIS, DNS, CDN). Why: official-looking clones exist; domain age and DNS are weak but useful identity signals.
 5. **Pulled third-party market snapshots** (CoinGecko-derived pages, 15–16 September 2026). Why: market cap is not a protocol fact, but it is the context people mix into both sites.
 6. **Mapped related URLs** in the Kaspa stack and in broader proof-of-work / consensus research. Why: these two sites sit in a larger graph; using the wrong neighbor (for example `kaspa.com`) is a common error.
-7. **Reported the stale public-face copy** to the kaspa.org website repository ([kaspamedia/kaspa-org#23](https://github.com/kaspamedia/kaspa-org/issues/23)), as a 16 Sep 2026 re-check on an issue that had been open since 22 Aug 2026. Why: documenting the lag in a comparison is not the same as telling the maintainers of the public face.
+7. **Reported the stale public-face copy.** Upstream [kaspamedia/kaspa-org#22](https://github.com/kaspamedia/kaspa-org/issues/22) and [#23](https://github.com/kaspamedia/kaspa-org/issues/23) have been open since 22 Aug 2026. This account could not comment there (GitHub 403). The 16 Sep 2026 re-check is [issue #1](https://github.com/STP-KAS/kaspa.org-kaspaexplained/issues/1). Why: the public face was already told, and `/lore` was still wrong.
 
 **What I did not do**
 
@@ -352,6 +352,7 @@ kaspa.org does not need to be a price site. The FAQ pointing at CoinGecko is fin
 | https://kaspa.org/kaspa-faq/ | Integration FAQ; economics stale |
 | https://github.com/kaspamedia/kaspa-org | Source repo for the public face |
 | https://github.com/kaspamedia/kaspa-org/issues/23 | Open report: `/lore` still pre-mainnet Toccata |
+| https://github.com/STP-KAS/kaspa.org-kaspaexplained/issues/1 | This report’s public-face staleness issue |
 | https://explorer.kaspa.org/ | Canonical explorer linked from the project |
 | https://api.kaspa.org/info/blockdag | Live DAG snapshot |
 | https://api.kaspa.org/info/coinsupply | Supply in sompi |
@@ -452,6 +453,7 @@ Primary reads, 16 September 2026 unless noted:
 23. https://kaspa.com/ (identified as KaspaCom, not the protocol homepage)
 24. https://eprint.iacr.org/2018/104.pdf (referenced; not re-derived)
 25. https://github.com/kaspamedia/kaspa-org/issues/22 and https://github.com/kaspamedia/kaspa-org/issues/23 (open since 22 Aug 2026; `/lore` still stale on 16 Sep 2026)
+26. https://github.com/STP-KAS/kaspa.org-kaspaexplained/issues/1
 
 ---
 
