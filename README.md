@@ -9,29 +9,84 @@ Not official. Not investment advice. Not a protocol audit.
 | Compared URLs | https://kaspa.org/ · https://kaspaexplained.com/ |
 | GitHub repo | [STP-KAS/kaspa.org-kaspaexplained](https://github.com/STP-KAS/kaspa.org-kaspaexplained) |
 | Method | Primary-page reads, GitHub source checks, live REST API snapshot, third-party market data, related-URL mapping |
+| Stale-page report | Filed on the kaspa.org site repo: [kaspamedia/kaspa-org#23](https://github.com/kaspamedia/kaspa-org/issues/23) (re-check comment, 16 Sep 2026) |
 
 GitHub repository names cannot contain `/`. This report is published as `kaspa.org-kaspaexplained`.
 
 ---
 
+## The finding
+
+**kaspa.org is the public face of Kaspa. That is the public face. It is not up to date. That is a huge flaw.**
+
+Not a style complaint. Not “marketing is allowed to be loose.” The URL people get when they search Kaspa still tells them Toccata is the *next* hardfork. Toccata activated on mainnet on 30 June 2026. This was re-read live on **16 September 2026** — about **78 days** after activation.
+
+That is the load-bearing defect in this comparison. kaspaexplained.com being independent is a category note. kaspa.org being public and stale is a failure of the page the world is supposed to trust.
+
+### Why “the public face” makes the lag worse
+
+| If it were | Then stale copy would be |
+| --- | --- |
+| An independent explainer | A maintainer bug. Readers can leave. |
+| A Discord recap | Noise. |
+| **The public face (kaspa.org)** | **Default truth for newcomers, press, listings, and anyone who does not already know to open GitHub.** |
+
+kaspa.org is not “a” Kaspa site. **That is the public face.** Wallets, buy routes, lore, and first contact all sit there. A public face that is not current on the largest 2026 protocol upgrade is a huge flaw because the audience cannot be expected to know the page is wrong.
+
+### The live contradiction (16 September 2026)
+
+Same domain. Same day. Opposite status.
+
+| Page | What it said | Status |
+| --- | --- | --- |
+| [kaspa.org/lore](https://kaspa.org/lore) | “The next hardfork is Toccata”; “A mature implementation is already up and running on TN12”; closing line “Toccata next” | **Stale. Huge flaw.** |
+| [kaspa.org/build](https://kaspa.org/build) | Toccata live on mainnet since 30 June 2026 | Current |
+| [kaspa.org/kaspa-faq](https://kaspa.org/kaspa-faq/) | Circulating supply and block reward dated **24 July 2023** (19.8B KAS, reward 196) | **Stale** (years) |
+
+Protocol truth the public face should have matched:
+
+| Fact | Evidence |
+| --- | --- |
+| Toccata activation DAA **474,165,565**, ~30 June 2026 16:15 UTC | [rusty-kaspa v2.0.0](https://github.com/kaspanet/rusty-kaspa/releases/tag/v2.0.0) |
+| Docs already past-tense | [docs.kaspa.org/toccata](https://docs.kaspa.org/toccata) |
+| Live virtual DAA on 16 Sep 2026 | **541,172,304** (`GET https://api.kaspa.org/info/blockdag`) |
+| Therefore Toccata is past activation | 541,172,304 ≫ 474,165,565 |
+
+TN12 is not the activation record. Mainnet DAA past the release score is.
+
+### This was already reported. `/lore` was still wrong.
+
+| When | What |
+| --- | --- |
+| 22 Aug 2026 | [kaspamedia/kaspa-org#22](https://github.com/kaspamedia/kaspa-org/issues/22) and [#23](https://github.com/kaspamedia/kaspa-org/issues/23) filed: Toccata still described as pre-mainnet on `/lore` and parts of `/build` |
+| 24 Aug 2026 | Last activity on those issues (assigned, not closed) |
+| 16 Sep 2026 | This report re-read `/lore`. The three stale Toccata sentences were still live. `/build` had been corrected. `/lore` had not. |
+| 16 Sep 2026 | Re-check posted on [#23](https://github.com/kaspamedia/kaspa-org/issues/23) |
+
+Lag from the GitHub report to the re-check: **~25 days**. The public face stayed wrong after the site repo was told.
+
+**Required fix for `/lore`:** past-tense Toccata. Drop TN12-as-the-story. Closing line: Toccata shipped. DAGKnight next. Until that ships, **do not cite kaspa.org/lore for upgrade status.**
+
+---
+
 ## Verdict
 
-These sites do different jobs. Treating them as substitutes is a category error.
+These sites do different jobs. Treating them as substitutes is a category error. The public-face staleness is not a tie-breaker in favor of the explainer being “the official site.” It is a reason not to treat the public face as current.
 
-- **[kaspa.org](https://kaspa.org/)** is the public project homepage: brand, narrative, wallets, buy routes, lore, and a developer doorway. It is the URL people expect when they search “Kaspa official site.” It is **not** a complete or uniformly current record of protocol status. On 16 September 2026, `/lore` still described Toccata as the *next* hardfork, while `/build` correctly said Toccata had been live on mainnet since 30 June 2026.
+- **[kaspa.org](https://kaspa.org/)** is the public project homepage: brand, narrative, wallets, buy routes, lore, and a developer doorway. **That is the public face.** It is the URL people expect when they search “Kaspa official site.” On 16 September 2026 it was **not up to date** on the most important 2026 upgrade. `/lore` still described Toccata as the *next* hardfork. `/build` correctly said Toccata had been live since 30 June 2026. A public face that disagrees with itself is a huge flaw.
 - **[kaspaexplained.com](https://kaspaexplained.com/)** is an independent explainer: mechanism, status labels, source ranking, and interactive demos. It is **not** official, not a wallet or exchange, and not a substitute for `docs.kaspa.org` or `github.com/kaspanet`. On the same date it correctly treated Toccata as live and DAGKnight as research.
 
-**If the question is “is feature X live?”** neither homepage is the settlement source. Settlement is: a Rusty Kaspa release tag, a merged KIP status, and a mainnet DAA score past the activation threshold. Both sites should be checked against those.
+**If the question is “is feature X live?”** neither homepage is the settlement source. Settlement is: a Rusty Kaspa release tag, a merged KIP status, and a mainnet DAA score past the activation threshold. Both sites should be checked against those. The public face failing that check is the story here.
 
 **Practical split**
 
 | Job | Better first stop | Why |
 | --- | --- | --- |
-| Brand, wallets, buy, vision copy | kaspa.org | That is the public face |
-| “Is this live, testnet, roadmap, or research?” | kaspaexplained.com/status, then GitHub | Status is labeled and dated |
+| Brand, wallets, buy, vision copy | kaspa.org | **That is the public face** — and it must be current, which `/lore` was not |
+| “Is this live, testnet, roadmap, or research?” | kaspaexplained.com/status, then GitHub | Status is labeled and dated; do not use `/lore` |
 | How GHOSTDAG / UTXO / mass actually work | kaspaexplained.com/what-is-kaspa | Demos + code links |
 | Integrate a node, SDK, or covenant | [docs.kaspa.org](https://docs.kaspa.org/) + [rusty-kaspa](https://github.com/kaspanet/rusty-kaspa) | Builder docs, not marketing |
-| Tokenomics numbers | wiki + REST API, not the old FAQ | See recency section |
+| Tokenomics numbers | wiki + REST API, not the old FAQ | FAQ economics are from 2023 |
 | Price | CoinGecko / CoinMarketCap | Neither site is a market data feed |
 
 ---
@@ -46,6 +101,7 @@ The comparison is of **two websites**, not of Kaspa as an investment. I treated 
 4. **Checked domain and hosting facts** (WHOIS, DNS, CDN). Why: official-looking clones exist; domain age and DNS are weak but useful identity signals.
 5. **Pulled third-party market snapshots** (CoinGecko-derived pages, 15–16 September 2026). Why: market cap is not a protocol fact, but it is the context people mix into both sites.
 6. **Mapped related URLs** in the Kaspa stack and in broader proof-of-work / consensus research. Why: these two sites sit in a larger graph; using the wrong neighbor (for example `kaspa.com`) is a common error.
+7. **Reported the stale public-face copy** to the kaspa.org website repository ([kaspamedia/kaspa-org#23](https://github.com/kaspamedia/kaspa-org/issues/23)), as a 16 Sep 2026 re-check on an issue that had been open since 22 Aug 2026. Why: documenting the lag in a comparison is not the same as telling the maintainers of the public face.
 
 **What I did not do**
 
@@ -61,7 +117,9 @@ The comparison is of **two websites**, not of Kaspa as an investment. I treated 
 
 ### kaspa.org
 
-**Role.** Public project site for Kaspa (ticker KAS), a proof-of-work blockDAG using GHOSTDAG. Mainnet launched 7 November 2021. The site presents fair launch (no premine, no hidden allocation), a cryptographic genesis-proof path, wallets, buy routes, lore, and a build page.
+**Role.** Public project site for Kaspa (ticker KAS), a proof-of-work blockDAG using GHOSTDAG. Mainnet launched 7 November 2021. **That is the public face:** fair launch, genesis proof, wallets, buy routes, lore, build.
+
+The public-face job is why recency is not optional. A manifesto can be timeless. An upgrade timeline cannot. `/lore` mixes both, and the timeline half is what failed.
 
 **Identity signals (public, not a legal opinion)**
 
@@ -70,6 +128,7 @@ The comparison is of **two websites**, not of Kaspa as an investment. I treated 
 | Domain | kaspa.org, created 14 August 2021, expires 14 August 2029 | WHOIS (GoDaddy) |
 | DNS | Cloudflare nameservers `elmo` / `ollie` | WHOIS / host.io |
 | Hosting | Amazon CloudFront (AS16509) | host.io |
+| Site source | [kaspamedia/kaspa-org](https://github.com/kaspamedia/kaspa-org) | GitHub |
 | Contact on old FAQ | `w@kaspa.org` | [kaspa.org/kaspa-faq](https://kaspa.org/kaspa-faq/) |
 | Code org | [github.com/kaspanet](https://github.com/kaspanet) | FAQ and lore |
 | Whitepaper | PHANTOM/GHOSTDAG, IACR ePrint 2018/104 | lore, FAQ |
@@ -81,6 +140,8 @@ The project describes itself as community-run, open source, no central company, 
 ### kaspaexplained.com
 
 **Role.** Independent static explainer, source repo [parker2017code/kaspa-explained](https://github.com/parker2017code/kaspa-explained). Hosted on Cloudflare Workers. Content CC BY 4.0; code MIT. The README states it is not an official Kaspa website and not investment advice. The about/editorial text states no official Kaspa role, no paid coverage, and that the maintainer may hold KAS.
+
+It is not the public face. Precision on status does not make it official. The public-face lag is why people reach for it anyway.
 
 **Identity signals**
 
@@ -100,25 +161,25 @@ The project describes itself as community-run, open source, no central company, 
 
 | Dimension | kaspa.org | kaspaexplained.com |
 | --- | --- | --- |
-| Official? | De facto public homepage | Explicitly independent |
+| Official? | **The public face** | Explicitly independent |
 | Audience | Newcomers, holders, press, builders arriving cold | Readers who want mechanism and status |
 | Voice | Narrative / manifesto (“real-time decentralization”) | Claim-labeled explainer |
 | Primary CTA | Get started, wallet, buy | Two doors: new to crypto vs already know crypto |
-| Status discipline | Mixed across pages | Central `/status` table with dates |
+| Status discipline | **Broken on `/lore`.** `/build` current | Central `/status` table with dates |
+| Recency (16 Sep 2026) | **Huge flaw:** public face not up to date | Status snapshot dated 14 Sep 2026 |
 | Source ranking | Links papers, GitHub, Medium, X | Explicit 4-tier hierarchy; marketing pages excluded |
-| Recency (16 Sep 2026) | `/build` current; `/lore` and FAQ stale | Status snapshot dated 14 Sep 2026 |
 | Interactivity | Genesis-proof link; `/build` WASM examples | Collision, GHOSTDAG, mass, fee/security-budget demos |
 | Conflict disclosure | Community site; buy onramp on site | Maintainer may hold KAS; no paid coverage claimed |
 | Bus factor | Community site with multiple surfaces | Single public maintainer (`parker2017code`) |
 | GitHub social proof | Points at kaspanet (rusty-kaspa ~846 stars) | Explainer repo 0 stars |
 | Desktop note | General web | Demos are dense; some interactions are PC-first |
-| Use as a citation | Weak for activation dates | Stronger for labeled status, still secondary to GitHub |
+| Use as a citation | **Do not cite `/lore` for dates** | Stronger for labeled status, still secondary to GitHub |
 
 ---
 
-## Recency and accuracy audit (the load-bearing check)
+## Recency and accuracy audit
 
-This is the factual core. Protocol truth on 16 September 2026:
+Protocol truth on 16 September 2026:
 
 | Fact | Evidence |
 | --- | --- |
@@ -134,13 +195,15 @@ This is the factual core. Protocol truth on 16 September 2026:
 | Page | What it said on 16 Sep 2026 | Verdict |
 | --- | --- | --- |
 | `/` | Fair launch, genesis proof, 10 BPS framing | Current enough for a homepage |
-| `/lore` | “The next hardfork is Toccata”; “A mature implementation is already up and running on TN12”; closing line “Toccata next” | **Stale.** Toccata activated ~30 June 2026. TN12 is not the activation record. |
-| `/build` | “Toccata … live on mainnet since June 30, 2026.” Points at rusty-kaspa v2.0.1 | **Current.** |
+| `/lore` | “The next hardfork is Toccata”; “A mature implementation is already up and running on TN12”; closing line “Toccata next” | **Stale. Huge flaw on the public face.** TN12 is not the activation record. |
+| `/build` | “Toccata … live on mainnet since June 30, 2026.” Points at rusty-kaspa v2.0.1 | **Current.** Proves the maintainers can update a page — they updated this one and left lore. |
 | `/kaspa-faq/` | Circulating supply and block reward dated **24 July 2023** (19.8B KAS, reward 196); “latest update: Crescendo” | **Stale.** Live circulating ~27.70B KAS; reward 2.18267645 KAS/block. |
 
-Search indexes still surface older WordPress-era kaspa.org pages that talk about 1 block per second. Those URLs are historical residue. The live Next.js lore/build split is the current problem: **two pages on the same official domain disagree about whether Toccata has shipped.**
+Search indexes still surface older WordPress-era kaspa.org pages that talk about 1 block per second. Those URLs are historical residue. The live Next.js lore/build split is the current problem: **two pages on the public face disagree about whether Toccata has shipped.**
 
-That does not make kaspa.org a fake site. It makes it a **poor unique source for upgrade status**. kaspaexplained.com’s `/sources` page records the same lore lag (checked there 10 September 2026). I re-read `/lore` on 16 September 2026; the lag was still there.
+That does not make kaspa.org a fake site. **That is the public face.** It makes it a **poor unique source for upgrade status**, which is an unacceptable job failure for the public face.
+
+kaspaexplained.com’s `/sources` page records the same lore lag (checked there 10 September 2026). I re-read `/lore` on 16 September 2026; the lag was still there.
 
 ### kaspaexplained.com — page by page
 
@@ -148,10 +211,10 @@ That does not make kaspa.org a fake site. It makes it a **poor unique source for
 | --- | --- | --- |
 | `/status` | Toccata live; Crescendo live; DAGKnight research; vProgs roadmap; “100 BPS” research; sources checked 14 Sep 2026 | Matches release + live DAA |
 | `/what-is-kaspa` | Inclusion ≠ finality; TPS is workload-dependent; covenants live, shared mutable app state not | Matches KIPs + node docs |
-| `/sources` | Code/releases settle claims; kaspa.org marketing pages excluded | Method is coherent. Exclusion is slightly too broad: `/build` *is* current. |
+| `/sources` | Code/releases settle claims; kaspa.org marketing pages excluded | Method is coherent. Exclusion is slightly too broad: `/build` *is* current. `/lore` deserved the ban. |
 | `/skeptical-case` | Seven risks including fee vs subsidy gap | Relevant; numbers on that page are a **22 August 2026** snapshot, not live |
 
-**Correction to kaspaexplained’s source rule, not to its Toccata status.** Refusing *all* kaspa.org marketing pages because lore lagged is understandable after two stale reads. It over-punishes `/build`, which had already caught up. The right rule is: cite kaspa.org only where it agrees with a release tag or a dated API read.
+**Correction to kaspaexplained’s source rule, not to its Toccata status.** Refusing *all* kaspa.org marketing pages because lore lagged is understandable after two stale reads. It over-punishes `/build`, which had already caught up. The right rule is: cite kaspa.org only where it agrees with a release tag or a dated API read. **Do not cite `/lore` until it is past-tense.**
 
 **kaspaexplained limitations that matter**
 
@@ -159,6 +222,7 @@ That does not make kaspa.org a fake site. It makes it a **poor unique source for
 - Maintainer may hold KAS. Disclosed. Still a conflict.
 - Some quantitative demos freeze a date (22 Aug 2026 price/fee row). The site tells you that; a reader who skips the date will quote a dead number.
 - Independent ≠ infallible. Status tables are a **secondary index** over GitHub and the API.
+- Independent ≠ the public face. Accuracy here does not transfer official status.
 
 ---
 
@@ -237,17 +301,19 @@ kaspa.org does not need to be a price site. The FAQ pointing at CoinGecko is fin
 
 **kaspa.org strengths**
 
-- Correct public identity for the project: domain since 2021, points at kaspanet, explorer, genesis proof.
-- `/build` is a real developer doorway and, as of this check, states Toccata correctly.
+- **That is the public face.** Domain since 2021, points at kaspanet, explorer, genesis proof. Identity is correct.
+- `/build` is a real developer doorway and, as of this check, states Toccata correctly. That proves an update *can* land.
 - Fair-launch and genesis-proof presentation is specific, not generic “no premine” marketing.
 - Wallet and buy routes belong on a homepage. An explainer should not replace them.
 
-**kaspa.org weaknesses**
+**kaspa.org weaknesses — the huge flaw**
 
-- Internal contradiction on the most important 2026 upgrade (Toccata).
-- FAQ economics are years out of date.
+- **The public face is not up to date.** `/lore` still called Toccata the next hardfork 78 days after mainnet activation.
+- Same-domain contradiction: `/build` current, `/lore` stale. Readers of the public face get two answers.
+- The lag survived an open GitHub issue for ~25 days after 22 Aug 2026.
+- FAQ economics are years out of date (July 2023 supply and reward).
 - Homepage slogan compresses inclusion speed into “without the wait,” which readers hear as finality.
-- Lore reads as a manifesto. That is allowed for a homepage. It is a bad place to copy dates from.
+- Lore reads as a manifesto. That is allowed for a homepage. It is a bad place to copy dates from, and it is still doing that job badly.
 
 **kaspaexplained.com strengths**
 
@@ -259,7 +325,7 @@ kaspa.org does not need to be a price site. The FAQ pointing at CoinGecko is fin
 
 **kaspaexplained.com weaknesses**
 
-- Not official. Linking it as “the Kaspa site” would be as wrong as treating lore as an activation record.
+- Not official. **Not the public face.** Linking it as “the Kaspa site” would be as wrong as treating lore as an activation record.
 - Single-maintainer and zero GitHub stars: high diligence, low external review.
 - Source ban on kaspa.org marketing is slightly overfit (lore failed; build did not).
 - Dense UI; demos are not a phone-first product.
@@ -280,17 +346,19 @@ kaspa.org does not need to be a price site. The FAQ pointing at CoinGecko is fin
 
 | URL | Why it belongs |
 | --- | --- |
-| https://kaspa.org/ | Public homepage |
-| https://kaspa.org/lore | Narrative + roadmap (check dates) |
+| https://kaspa.org/ | **The public face** |
+| https://kaspa.org/lore | Narrative + roadmap — **not current on 16 Sep 2026** |
 | https://kaspa.org/build | Developer doorway; Toccata stated as live |
 | https://kaspa.org/kaspa-faq/ | Integration FAQ; economics stale |
+| https://github.com/kaspamedia/kaspa-org | Source repo for the public face |
+| https://github.com/kaspamedia/kaspa-org/issues/23 | Open report: `/lore` still pre-mainnet Toccata |
 | https://explorer.kaspa.org/ | Canonical explorer linked from the project |
 | https://api.kaspa.org/info/blockdag | Live DAG snapshot |
 | https://api.kaspa.org/info/coinsupply | Supply in sompi |
 | https://api.kaspa.org/info/blockreward | Current subsidy |
 | https://api.kaspa.org/docs | REST docs |
 | https://docs.kaspa.org/ | Builder docs |
-| https://docs.kaspa.org/toccata | Toccata developer guide |
+| https://docs.kaspa.org/toccata | Toccata developer guide (past-tense, correct) |
 | https://wiki.kaspa.org/ | Community wiki |
 | https://wiki.kaspa.org/en/tokenomics | Emission schedule |
 | https://github.com/kaspanet | Protocol org |
@@ -327,7 +395,7 @@ kaspa.org does not need to be a price site. The FAQ pointing at CoinGecko is fin
 | --- | --- |
 | https://www.kaspafoundation.org/ | Kaspa Ecosystem Foundation (KEF) |
 | https://kaspa.com/ | **KaspaCom** marketplace / wallet / NFT hub — not kaspa.org |
-| https://argent-lang.github.io/ or https://github.com/argent-lang/argent | Covenant language (not release-ready per its README) |
+| https://github.com/argent-lang/argent | Covenant language (not release-ready per its README) |
 
 ### Research papers (broader than Kaspa branding)
 
@@ -383,6 +451,7 @@ Primary reads, 16 September 2026 unless noted:
 22. CoinGecko historical table for KAS, 16 Sep 2026 (~$912M market cap)
 23. https://kaspa.com/ (identified as KaspaCom, not the protocol homepage)
 24. https://eprint.iacr.org/2018/104.pdf (referenced; not re-derived)
+25. https://github.com/kaspamedia/kaspa-org/issues/22 and https://github.com/kaspamedia/kaspa-org/issues/23 (open since 22 Aug 2026; `/lore` still stale on 16 Sep 2026)
 
 ---
 
@@ -399,12 +468,12 @@ curl -s https://api.kaspa.org/info/blockreward
 # 3. Current node tag
 # open https://github.com/kaspanet/rusty-kaspa/releases/latest
 
-# 4. Re-read the two pages that disagreed
+# 4. Re-read the two pages that disagreed on the public face
 # https://kaspa.org/lore
 # https://kaspa.org/build
 ```
 
-If `/lore` is updated to past-tense Toccata, that finding in this report is closed. The method still applies: do not cite a homepage for an activation date without a release tag and a DAA read.
+If `/lore` is updated to past-tense Toccata, the huge-flaw finding in this report is closed. The method still applies: do not cite a homepage for an activation date without a release tag and a DAA read. **That is the public face. It has to be current.**
 
 ---
 
