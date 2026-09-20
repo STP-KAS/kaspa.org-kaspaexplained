@@ -484,3 +484,12 @@ If `/lore` is updated to past-tense Toccata, the huge-flaw finding in this repor
 ---
 
 *Compiled 16 September 2026. Re-read live sources before repeating any number.*
+
+---
+
+> **Standard disclaimer.** This GitHub, not the topic above.
+>
+> Intentions are good; thought process is questionable. STP remains delusional. Si vis pacem, para bellum.
+>
+> Intern at https://sixpack.wtf/  
+> X: https://x.com/StppStp · GitHub: https://github.com/STP-KAS
